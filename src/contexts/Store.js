@@ -6,6 +6,7 @@ export const StoreContext = createContext();
 const initialState = {
   isAuth: false,
   user: null,
+  token: null,
 };
 
 const reducer = (state, action) => {
@@ -14,7 +15,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         isAuth: true,
-        user: action.payload,
+        user: action?.payload,
+        token: action?.payload?.token,
       };
     default:
       return state;
