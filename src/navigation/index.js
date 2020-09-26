@@ -2,15 +2,15 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {User} from '../screens/Main';
-import {Login, Register} from '../screens/Auth';
+import {Login, Registration} from '../screens/Auth';
 
 const RootStack = createStackNavigator();
 const AuthStack = createStackNavigator();
 
 const AuthNavigator = () => (
   <AuthStack.Navigator initialRouteName="Login" headerMode="none">
-    <AuthStack.screen name="Login" component={Login} />
-    <AuthStack.screen name="Register" comopnent={Register} />
+    <AuthStack.Screen name="Login" component={Login} />
+    <AuthStack.Screen name="Register" component={Registration} />
   </AuthStack.Navigator>
 );
 
@@ -23,7 +23,7 @@ const RootNavigator = () => (
 const Navigator = () => {
   return (
     <NavigationContainer>
-      {true ? <RootNavigator /> : <AuthNavigator />}
+      {false ? <RootNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };
