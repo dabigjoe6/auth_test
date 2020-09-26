@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {User} from '../screens/Main';
 import {Login, Registration} from '../screens/Auth';
+import {StoreContext} from '../contexts/Store';
 
 const RootStack = createStackNavigator();
 const AuthStack = createStackNavigator();
@@ -21,9 +22,11 @@ const RootNavigator = () => (
 );
 
 const Navigator = () => {
+  const {store} = useContext(StoreContext);
+
   return (
     <NavigationContainer>
-      {false ? <RootNavigator /> : <AuthNavigator />}
+      {store.isAuth ? <RootNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };
