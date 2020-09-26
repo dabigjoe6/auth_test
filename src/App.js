@@ -1,8 +1,8 @@
 import React from 'react';
-import {Login, Registration} from './screens/Auth';
+import Navigator from './navigation';
 
 const App = () => {
-  return <Login />;
+  return <Navigator />;
 };
 
 export default App;
