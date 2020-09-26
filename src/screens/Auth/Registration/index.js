@@ -1,12 +1,17 @@
 /* eslint-disable no-shadow */
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {Container, CustomInput, PrimaryBtn} from '../../../components';
 import {useFormik} from 'formik';
+import useFetch from '../../../hooks/useFetch';
 import * as yup from 'yup';
 
 const Registration = ({navigation}) => {
   const passwordInput = useRef();
   const confirmPasswordInput = useRef();
+
+  const [success, error, isLoading, register] = useFetch(
+    '/dummy_endpoint_for_registration',
+  );
 
   const {
     handleChange,
@@ -33,11 +38,22 @@ const Registration = ({navigation}) => {
     }),
     onSubmit: (values) => {
       //submit to API
-      console.log(values);
+      register(values);
     },
   });
 
-  const isLoading = false;
+  useEffect(() => {
+    //user logged in successfully
+    if (success) {
+      navigation.navigate('Login');
+    }
+  }, [success, navigation]);
+
+  useEffect(() => {
+    if (error) {
+      //Do something with error
+    }
+  }, [error]);
 
   return (
     <Container title="Registration">

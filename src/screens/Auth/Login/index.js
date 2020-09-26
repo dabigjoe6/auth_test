@@ -1,11 +1,20 @@
 /* eslint-disable no-shadow */
-import React, {useRef} from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import {Container, CustomInput, PrimaryBtn} from '../../../components';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
+import useFetch from '../../../hooks/useFetch';
+import {StoreContext} from '../../../contexts/Store';
+import {ToastAndroid} from 'react-native';
 
 const Login = ({navigation}) => {
   const passwordInput = useRef();
+
+  const [success, error, isLoading, login] = useFetch(
+    '/dummy_endpoint_for_login',
+  );
+
+  const {dispatch} = useContext(StoreContext);
 
   const {
     handleChange,
@@ -28,12 +37,27 @@ const Login = ({navigation}) => {
     }),
     onSubmit: (values) => {
       //submit to API
-      console.log(values);
+      login(values);
     },
   });
 
-  const isLoading = false;
+  useEffect(() => {
+    //user logged in successfully
+    if (success?.auth) {
+      const user = success?.user;
+      const token = success?.token;
 
+      dispatch({type: 'USER_LOGIN_SUCCESS', payload: {user, token}});
+    } else {
+      ToastAndroid.show('Email or password is incorrect', ToastAndroid.SHORT);
+    }
+  }, [success, dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      //Do something with error
+    }
+  }, [error]);
   return (
     <Container title="Login">
       <CustomInput

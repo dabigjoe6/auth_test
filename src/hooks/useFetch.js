@@ -4,10 +4,9 @@ import {useState} from 'react';
 
 const useFetch = (
   endpoint,
-  state = null,
+  token = null,
   options = {},
-  storeAction = null,
-  baseURL = 'https://baseURL',
+  baseURL = 'https://dummybaseURL',
 ) => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
@@ -30,15 +29,12 @@ const useFetch = (
 
     const fetchData = async () => {
       try {
-        const token = state?.token;
-
         options = token ? {...options, token} : options;
 
         const res = await fetch(baseURL + endpoint, options);
         const json = await res.json();
 
         if (res.ok) {
-          storeAction && storeAction(json?.data);
           setResponse(json?.data);
           setIsLoading(false);
         } else {
