@@ -4,7 +4,7 @@ import {Container, CustomInput, PrimaryBtn} from '../../../components';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const passwordInput = useRef();
 
   const {
@@ -13,6 +13,7 @@ const Login = () => {
     setFieldTouched,
     values,
     errors,
+    touched,
   } = useFormik({
     initialValues: {
       email: '',
@@ -42,7 +43,7 @@ const Login = () => {
         onChangeText={handleChange('email')}
         onBlur={() => setFieldTouched('email')}
         onSubmitEditing={() => passwordInput.current.focus()}
-        error={errors.email}
+        error={touched.email && errors.email}
       />
       <CustomInput
         ref={passwordInput}
@@ -52,7 +53,14 @@ const Login = () => {
         onChangeText={handleChange('password')}
         onBlur={() => setFieldTouched('password')}
         onSubmitEditing={handleSubmit}
-        error={errors.password}
+        secureTextEntry
+        textContentType="password"
+        error={touched.password && errors.password}
+      />
+      <PrimaryBtn
+        transparent
+        title="Don't have an account? Register"
+        onPress={() => navigation.navigate('Registration')}
       />
       <PrimaryBtn title="Login" isLoading={isLoading} onPress={handleSubmit} />
     </Container>
