@@ -5,8 +5,10 @@ import styles from './styles';
 
 const Container = ({children, title}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+    <View testID="Container" style={styles.container}>
+      <Text testId="ContainerTitle" style={styles.title}>
+        {title}
+      </Text>
       {children}
     </View>
   );

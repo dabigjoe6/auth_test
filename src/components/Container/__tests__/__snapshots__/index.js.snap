@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingHorizontal": 30,
+      "paddingTop": 90,
+    }
+  }
+  testID="Container"
+>
+  <Text
+    style={
+      Object {
+        "color": "#74B3CE",
+        "fontSize": 22,
+        "fontWeight": "900",
+        "marginBottom": 30,
+      }
+    }
+    testId="ContainerTitle"
+  />
+  <Text>
+    Custom Child
+  </Text>
+</View>
+`;
