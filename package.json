@@ -15,6 +15,7 @@
     "@react-navigation/stack": "^5.9.1",
     "enzyme-to-json": "^3.6.0",
     "formik": "^2.1.5",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-gesture-handler": "^1.8.0",
@@ -41,10 +42,12 @@
   "jest": {
     "preset": "react-native",
     "collectCoverage": true,
-    "setupFilesAfterEnv": ["jest-enzyme"],
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
-        "enzymeAdapter": "react16"
-    }  
+      "enzymeAdapter": "react16"
+    }
   }
 }

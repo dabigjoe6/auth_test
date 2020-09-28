@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import {Text, View, TextInput} from 'react-native';
 // import {TextInput} from 'react-native-gesture-handler';
-
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 const CustomInput = React.forwardRef(({label, error, ...otherProps}, ref) => {
@@ -24,5 +24,10 @@ const CustomInput = React.forwardRef(({label, error, ...otherProps}, ref) => {
     </View>
   );
 });
+
+CustomInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  error: PropTypes.string,
+};
 
 export default CustomInput;

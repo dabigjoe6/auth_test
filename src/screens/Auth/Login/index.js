@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import useFetch from '../../../hooks/useFetch';
 import {StoreContext} from '../../../contexts/Store';
 import {ToastAndroid} from 'react-native';
+import PropTypes from 'prop-types';
 
 const Login = ({navigation}) => {
   const passwordInput = useRef();
@@ -49,7 +50,8 @@ const Login = ({navigation}) => {
 
       dispatch({type: 'USER_LOGIN_SUCCESS', payload: {user, token}});
     } else {
-      ToastAndroid.show('Email or password is incorrect', ToastAndroid.SHORT);
+      success &&
+        ToastAndroid.show('Email or password is incorrect', ToastAndroid.SHORT);
     }
   }, [success, dispatch]);
 
@@ -89,6 +91,12 @@ const Login = ({navigation}) => {
       <PrimaryBtn title="Login" isLoading={isLoading} onPress={handleSubmit} />
     </Container>
   );
+};
+
+Login.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Login;

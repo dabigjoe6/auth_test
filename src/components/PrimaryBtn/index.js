@@ -1,6 +1,7 @@
 import React from 'react';
 import {Pressable, Text, View} from 'react-native';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
 const PrimaryBtn = ({onPress, isLoading, title, transparent}) => {
   const handlePress = () => {
@@ -18,6 +19,13 @@ const PrimaryBtn = ({onPress, isLoading, title, transparent}) => {
       </View>
     </Pressable>
   );
+};
+
+PrimaryBtn.propTypes = {
+  onPress: PropTypes.func,
+  isLoading: PropTypes.bool,
+  title: PropTypes.string,
+  transparent: PropTypes.bool,
 };
 
 export default PrimaryBtn;

@@ -3,6 +3,7 @@ import React, {useRef, useEffect} from 'react';
 import {Container, CustomInput, PrimaryBtn} from '../../../components';
 import {useFormik} from 'formik';
 import useFetch from '../../../hooks/useFetch';
+import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
 const Registration = ({navigation}) => {
@@ -102,6 +103,12 @@ const Registration = ({navigation}) => {
       />
     </Container>
   );
+};
+
+Registration.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Registration;

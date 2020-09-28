@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 
@@ -12,6 +13,14 @@ const Container = ({children, title}) => {
       {children}
     </View>
   );
+};
+
+Container.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  title: PropTypes.string,
 };
 
 export default Container;
