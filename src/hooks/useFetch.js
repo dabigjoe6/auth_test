@@ -1,5 +1,15 @@
 /* eslint-disable no-catch-shadow */
 /* eslint-disable no-shadow */
+
+/**
+ * @param {string} endpoint Endpoint
+ * @param {object{}} [token = null] API JWT token (optional)
+ * @param {object{}} [options = {}] Fetch options (optional)
+ * @param {string} [baseURL = 'https://dummybaseURL'] Base url (optional)
+ *
+ * @returns {object[]} [response, error, isLoading, dispatchFetch]
+ */
+
 import {useState} from 'react';
 
 const useFetch = (
