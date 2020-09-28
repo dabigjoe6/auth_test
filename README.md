@@ -16,5 +16,5 @@ Android
 * `npx react-native run-android` runs the Android build
 * ⌘-m in the Android emulator brings up the [React Native debug menu](https://facebook.github.io/react-native/docs/debugging.html).
 
-For running on a physical iOS/Android device, [take a look at the docs for the subtleties involved](https://facebook.github.io/react-native/docs/running-on-device).
+For running on a physical Android device, [take a look at the docs for the subtleties involved](https://facebook.github.io/react-native/docs/running-on-device).
 
