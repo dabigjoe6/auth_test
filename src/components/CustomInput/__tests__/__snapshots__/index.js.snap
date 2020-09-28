@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Input should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 20,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "marginBottom": 10,
+      }
+    }
+  >
+    Test
+  </Text>
+  <Component
+    allowFontScaling={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "backgroundColor": "#EAEAEB",
+        "borderRadius": 4,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

@@ -1,8 +1,10 @@
+import {colors} from '../../config';
+
 const styles = {
   container: {
     width: '100%',
     height: 50,
-    backgroundColor: '#74B3CE',
+    backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
@@ -21,7 +23,7 @@ const styles = {
     fontSize: 16,
   },
   transparentTitle: {
-    color: '#74B3CE',
+    color: colors.primary,
   },
 };
 

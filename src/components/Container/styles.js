@@ -1,3 +1,5 @@
+import {colors} from '../../config';
+
 const styles = {
   container: {
     flex: 1,
@@ -8,7 +10,7 @@ const styles = {
     fontSize: 22,
     fontWeight: '900',
     marginBottom: 30,
-    color: '#74B3CE',
+    color: colors.primary,
   },
 };
 

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import {Text, View, TextInput} from 'react-native';
+// import {TextInput} from 'react-native-gesture-handler';
 
 import styles from './styles';
 
